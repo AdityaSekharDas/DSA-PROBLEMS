@@ -5,7 +5,7 @@ public:
         sort(v.begin(),v.end());
         int n = arr.size();
         if (n == 0) return arr;
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         int x = 1;
         mp[v[0]] = x;
         for(int i=1; i<n; i++) {
