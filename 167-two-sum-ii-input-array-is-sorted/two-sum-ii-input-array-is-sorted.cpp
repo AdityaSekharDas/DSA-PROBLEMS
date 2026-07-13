@@ -1,13 +1,12 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        map<int,int> mp;
         int n = numbers.size();
-        for(int i=0; i<n; i++) {
-            if(mp.find(target-numbers[i]) != mp.end()) {
-                return {mp[target-numbers[i]]+1 , i+1};
-            }
-            mp[numbers[i]] = i;
+        int l = 0 , r = n-1;
+        while(l <= r) {
+             if(numbers[l] + numbers[r] == target) return {l+1 , r+1};
+             else if(numbers[l] + numbers[r] > target) r--;
+             else l++;
         }
         return {-1,-1};
     }
