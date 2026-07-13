@@ -8,7 +8,7 @@ public:
         for(int r=0; r<n; r++) {
             mp[fruits[r]]++;
             if(mp.size() <= 2) maxlen = max(maxlen,r-l+1);
-            while(mp.size() > 2) {
+            if(mp.size() > 2) {
                 mp[fruits[l]]--;
                 if(mp[fruits[l]] == 0) mp.erase(fruits[l]);
                 l++;
