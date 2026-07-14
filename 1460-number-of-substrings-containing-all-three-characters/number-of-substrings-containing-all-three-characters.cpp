@@ -1,14 +1,13 @@
 class Solution {
 public:
     int numberOfSubstrings(string s) {
-        int ans = 0;
-        int arr[3] = {-1,-1,-1};
-        for(int i=0; i<s.size(); i++) {
-            arr[s[i]-'a'] = i;
-            if(arr[0] != -1 && arr[1] != -1 && arr[2] != -1) {
-                ans += 1 + min(arr[0],min(arr[1],arr[2]));
-            }
+        int cnt = 0;
+        int n = s.size();
+        vector<int> arr(3,-1);
+        for(int r=0; r<n; r++) {
+           arr[s[r] - 'a'] = r;
+           cnt += min(arr[0],min(arr[1],arr[2])) + 1;
         }
-        return ans;
+        return cnt;
     }
 };
