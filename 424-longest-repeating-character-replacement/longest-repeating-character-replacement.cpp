@@ -10,7 +10,7 @@ public:
             arr[s[r] - 'A']++;
             maxfreq = max(maxfreq,arr[s[r] - 'A']);
             if((r-l+1) - maxfreq <= k) len = max(len , r-l+1);
-            while((r-l+1) - maxfreq > k) {
+            if((r-l+1) - maxfreq > k) {
                 arr[s[l] - 'A']--;
                 l++;
             }
