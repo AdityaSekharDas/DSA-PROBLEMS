@@ -1,0 +1,1 @@
+<h2>number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers Notes</h2><hr>[ Time taken: 3hrs 2m 13s ]
