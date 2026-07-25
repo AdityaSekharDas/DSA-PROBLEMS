@@ -1,17 +1,16 @@
 class Solution {
 public:
     int maxProduct(int n) {
-        int maxi = 0;
-        string s = "";
+        int first = 0 , second = 0;
         while(n != 0) {
-            s += n%10 + '0';
+            int dig = n % 10;
+            if(dig >= first) {
+                second = first;
+                first = dig;
+            }
+            else if(dig > second) second = dig;
             n /= 10;
         }
-        for(int i=0; i<s.size(); i++) {
-            for(int j=i+1; j<s.size(); j++) {
-                maxi = max(maxi,(s[i]-'0') * (s[j]-'0'));
-            }
-        }
-        return maxi;
+        return first * second;
     }
 };
