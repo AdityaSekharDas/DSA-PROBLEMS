@@ -6,8 +6,7 @@ public:
 
         sort(nums.begin(),nums.end());
         for(int i=0; i<n-1; i++) {
-            int end = nums[i+1];
-            for(int j=nums[i]+1; j<end; j++) {
+            for(int j=nums[i]+1; j<nums[i+1]; j++) {
                 ans.push_back(j);
             }
         }
