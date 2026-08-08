@@ -7,8 +7,15 @@ public:
             int val = (r - l) * min(height[l] , height[r]);
             area = max(area,val);
 
-            if(height[l] < height[r]) l++;
-            else r--;
+            if(height[l] < height[r]) {
+                int h = height[l];
+                while(l < r && height[l] <= h) l++;
+            }
+
+            else {
+                int h = height[r];
+                while(r > l && height[r] <= h) r--;
+            }
         }
         return area;
     }
