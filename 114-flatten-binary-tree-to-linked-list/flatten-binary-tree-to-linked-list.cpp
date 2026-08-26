@@ -30,7 +30,7 @@ public:
         for(int i=1; i<ans.size(); i++) {
             TreeNode* node = new TreeNode(ans[i]);
             temp->right = node;
-            temp = temp->right;
+            temp = node;
         }
         root->left = NULL;
     }
