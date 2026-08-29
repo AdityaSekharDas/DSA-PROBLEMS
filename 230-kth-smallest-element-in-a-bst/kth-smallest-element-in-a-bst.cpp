@@ -14,21 +14,22 @@ public:
     int ans = 0;
 
     int kthSmallest(TreeNode* root, int k) {
-        inorder(root,k);
+        int x = 0;
+        inorder(root,x,k);
         return ans;
     }
 
-    void inorder(TreeNode* root, int &k) {
+    void inorder(TreeNode* root, int &x, int &k) {
         if(root == NULL) return;
 
-        inorder(root->left,k);
+        inorder(root->left,x,k);
 
-        if(--k == 0) {
+        if(++x == k) {
             ans = root->val;
             return;
         }
 
-        inorder(root->right,k);
+        inorder(root->right,x,k);
     }
 
 };
