@@ -12,20 +12,14 @@
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        vector<int> ans;
-        inorder(root,ans);
-
-        for(int i=1; i<ans.size(); i++) {
-            if(ans[i] <= ans[i-1]) return false;
-        }
-        return true;
+        return BST(root, LONG_MIN, LONG_MAX);
     }
 
-    void inorder(TreeNode* root, vector<int>& ans) {
-        if(root == NULL) return;
+    bool BST(TreeNode* root, long long min, long long max) {
+        if(root == NULL) return true;
 
-        inorder(root->left,ans);
-        ans.push_back(root->val);
-        inorder(root->right,ans);
+        if(root->val <= min || root->val >= max) return false;
+
+        return BST(root->left, min, root->val) && BST(root->right, root->val, max);
     }
 };
